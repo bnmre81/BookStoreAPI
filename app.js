@@ -3,6 +3,9 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
 const { Book } = require("./db/models");
+const passport = require("passport");
+// Strategies
+const { localStrategy } = require("./midleware/passport");
 
 const db = require("./db");
 
@@ -16,6 +19,8 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(passport.initialize);
+passport.use(localStrategy);
 
 // Routers
 app.use("/books", bookRoutes);

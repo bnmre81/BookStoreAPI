@@ -14,6 +14,10 @@ User.init(
         msg: "Username already exists",
       },
     },
+    role {
+        type: DataTypes.STRING,
+        deffaultValue: "customer",
+    },
     firstName: {
       type: DataTypes.STRING,
     },
